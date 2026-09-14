@@ -9,7 +9,7 @@ export const products = [
 export default function productsPage() {
   return (
     <section>
-      <Link href={"/"}>Echa pa tras</Link>
+      <Link href={"/"} className="inline-block my-5 bg-blue-600 px-2 py-2 rounded">Echa pa tras</Link>
       <h1 className="gap-y-8">Lista de productos</h1>
       <section className="flex flex-row gap-4">
         {products.map((p) => (

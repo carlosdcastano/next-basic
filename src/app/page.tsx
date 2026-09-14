@@ -4,7 +4,7 @@ export default function Home() {
   return (
     <div>
       
-      <div>
+      <div className='prose'>
           <h1>Bienvenido al catalogo</h1>
           <Link href= "/products"> Ver catalogo </Link>
       </div>
