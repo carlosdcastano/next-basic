@@ -1,24 +1,27 @@
-import Link from "next/link"
-import { notFound, redirect } from "next/navigation"
-import { products } from "../page"
+import { redirect } from "next/navigation";
+import { products } from "../page";
+import Link from "next/link";
+
 
 interface Props{
-    params: Promise<{id:string}>;
+    params: Promise<{id:string}>
 }
 
-export default async function({params} : Props){
-    const {id} = await params
-    const product = products.find((p) => p.id === id);
+export default async function productDetail({params} : Props){
+    const {id} = await params;
 
+
+    const product = products.find((p) => p.id===id)
     if (!product) {
-        redirect('/products') 
+        redirect('/products')
     }
 
     return(
-        <>
-            <h1>{`Estás dentro del producto ${product?.name}`}</h1>
-            <h2>{`La descripción de este producto es ${product?.description} y su precio es ${product?.price}`}</h2>
-            <Link href={`/products`}>return</Link>
-        </>
+        <section>
+            <h1>Estás en la página del poducto {product.name}</h1>
+            <p>{product.descripcion}</p>
+            <Link href={'/products'}>Volver a productos</Link>
+        </section>
     )
+
 }
